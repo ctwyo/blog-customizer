@@ -60,7 +60,7 @@ export const ArticleParamsForm = ({
 				toggleSideBar();
 			}
 		};
-
+		//mousedown
 		document.addEventListener('mousedown', handleClickOutsideSidebar);
 
 		return () => {
