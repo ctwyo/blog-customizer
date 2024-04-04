@@ -21,6 +21,8 @@
 	height: auto;
 	min-height: 100%;
 	padding: 50px 31px;
+	color: #000000;
+	font-family: 'Open Sans', sans-serif;
 	background-color: #ffffff;
 	border-right: 1px solid #000000;
 }
@@ -29,4 +31,10 @@
 	display: flex;
 	justify-content: space-between;
 	margin-top: auto;
+}
+
+.topContainer {
+	display: flex;
+	flex-direction: column;
+	gap: 50px;
 }
