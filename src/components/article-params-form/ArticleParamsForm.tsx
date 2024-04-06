@@ -48,6 +48,8 @@ export const ArticleParamsForm = ({ onUpdate }: UpdateCallBack) => {
 
 	const handleClear = () => {
 		setArticleState(defaultArticleState);
+		onUpdate(defaultArticleState);
+		toggleSideBar();
 	};
 
 	const setArticleStateOption =
