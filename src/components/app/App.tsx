@@ -5,12 +5,14 @@ import {
 	ArticleStateType,
 	defaultArticleState,
 } from 'src/constants/articleProps';
+import '../../styles/index.scss';
 
 export const App = () => {
 	const [articleState, setArticleState] =
 		useState<ArticleStateType>(defaultArticleState);
 
 	const handleUpdate = (newState: ArticleStateType) => {
+		console.log(newState);
 		setArticleState(newState);
 	};
 

@@ -6,6 +6,7 @@ import { useRef, useState } from 'react';
 import { Select } from '../select';
 import {
 	ArticleStateType,
+	OptionType,
 	backgroundColors,
 	contentWidthArr,
 	defaultArticleState,
@@ -28,18 +29,14 @@ export const ArticleParamsForm = ({
 	const [articleState, setArticleState] =
 		useState<ArticleStateType>(defaultArticleState);
 
-	const handleApply = (e: React.MouseEvent) => {
-		e.preventDefault();
-		onUpdate(articleState);
-		// const { fontFamilyOption, fontSizeOption, fontColor, backgroundColor, contentWidth } = articleState;
-		// onUpdate({
-		// 	fontFamilyOption, fontSizeOption, fontColor, backgroundColor, contentWidth
-		// });
-		toggleSideBar();
-	};
-
 	const [sidebarOpen, setSideBarOpen] = useState(false);
 	const sidebarRef = useRef<HTMLElement>(null); // <aside>
+
+	const handleApply = (e: React.FormEvent) => {
+		e.preventDefault();
+		onUpdate(articleState);
+		toggleSideBar();
+	};
 
 	useClose({
 		isOpen: sidebarOpen,
@@ -56,22 +53,20 @@ export const ArticleParamsForm = ({
 	};
 
 	const setArticleStateOption =
-		(key: keyof ArticleStateType) => (value: any) => {
+		(key: keyof ArticleStateType) => (value: OptionType) => {
 			setArticleState((prevState) => ({ ...prevState, [key]: value }));
 		};
 
 	return (
 		<>
-			{/* <ArrowButton onClick={toggleSideBar} /> */}
-
-			<ArrowButton onClick={toggleSideBar} />
+			<ArrowButton toggleButton={toggleSideBar} isOpen={sidebarOpen} />
 			<aside
 				ref={sidebarRef}
 				className={clsx(
 					styles.container,
 					sidebarOpen && styles.container_open
 				)}>
-				<form className={styles.form}>
+				<form className={styles.form} onSubmit={handleApply}>
 					<div className={styles.topContainer}>
 						<Text
 							size={31}
@@ -121,7 +116,7 @@ export const ArticleParamsForm = ({
 
 					<div className={styles.bottomContainer}>
 						<Button title='Сбросить' type='reset' onClick={handleClear} />
-						<Button title='Применить' type='submit' onClick={handleApply} />
+						<Button title='Применить' type='submit' />
 					</div>
 				</form>
 			</aside>

@@ -14,9 +14,10 @@ export const ArrowButtonStory: Story = {
 		return (
 			<>
 				<ArrowButton
-					onClick={() => {
+					toggleButton={() => {
 						console.log('123');
 					}}
+					isOpen={false}
 				/>
 			</>
 		);
