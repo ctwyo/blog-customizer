@@ -13,7 +13,12 @@ export const ArrowButtonStory: Story = {
 	render: () => {
 		return (
 			<>
-				<ArrowButton />
+				<ArrowButton
+					toggleButton={() => {
+						console.log('123');
+					}}
+					isOpen={false}
+				/>
 			</>
 		);
 	},
