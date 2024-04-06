@@ -19,13 +19,11 @@ import { Text } from '../text';
 import clsx from 'clsx';
 import { useClose } from '../hooks/useClose';
 
-type UpdateCallback = (newState: ArticleStateType) => void;
+type UpdateCallBack = {
+	onUpdate: (newState: ArticleStateType) => void;
+};
 
-export const ArticleParamsForm = ({
-	onUpdate,
-}: {
-	onUpdate: UpdateCallback;
-}) => {
+export const ArticleParamsForm = ({ onUpdate }: UpdateCallBack) => {
 	const [articleState, setArticleState] =
 		useState<ArticleStateType>(defaultArticleState);
 

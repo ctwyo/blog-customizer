@@ -6,19 +6,19 @@ import {
 	defaultArticleState,
 } from 'src/constants/articleProps';
 import '../../styles/index.scss';
+import styles from '../../styles/index.module.scss';
 
 export const App = () => {
 	const [articleState, setArticleState] =
 		useState<ArticleStateType>(defaultArticleState);
 
 	const handleUpdate = (newState: ArticleStateType) => {
-		console.log(newState);
 		setArticleState(newState);
 	};
 
 	return (
 		<main
-			className='main'
+			className={styles.main}
 			style={
 				{
 					'--font-family': articleState.fontFamilyOption.value,

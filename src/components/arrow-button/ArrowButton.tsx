@@ -9,7 +9,6 @@ export type ArrowButtonProps = {
 	isOpen: boolean;
 };
 
-// export const ArrowButton = ({ toggleButton: toggleButton }: ArrowButtonProps) => {
 export const ArrowButton = ({ toggleButton, isOpen }: ArrowButtonProps) => {
 	return (
 		/* Не забываем указаывать role и aria-label атрибуты для интерактивных элементов */
